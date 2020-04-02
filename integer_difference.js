@@ -10,5 +10,17 @@ For example:
 */
 
 const intDiff = (arr, n) => {
-  // your code goes here
+  const newArr = arr.sort(function(a, b) {
+    return a - b;
+  });
+  let sum = 0;
+  for(let i = 0; i < newArr.length - 1; i++) {
+    for(let h = i + 1; h < newArr.length; h++) {
+      if(((newArr[h] - newArr[i]) === n) || ((newArr[i] - newArr[h]) === n)) {
+        sum++;
+      }
+    }
+  }
+
+  return sum;
 }
